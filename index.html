@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <title>Valis AI</title>
+  </head>
+  <body>
+
+    <div class="panels">
+      <div class="situation row panel panel1">
+        <a href="valis-pages/situation.html" class="waves-effect waves-light button">The Situation</a>
+      </div>
+      <div class="mission row panel panel2">
+        <a href="valis-pages/mission.html" class="waves-effect waves-light button">The Mission</a>
+      </div>
+      <div class="execution row panel panel3">
+        <a href="valis-pages/execution.html" class="waves-effect waves-light button">The Execution</a>
+      </div>
+      <div class="admin-log row panel panel4">
+        <a href="valis-pages/admin-log.html" class="waves-effect waves-light button">The Admin Log</a>
+      </div>
+      <div class="command-signal row panel panel5">
+        <a href="valis-pages/command-signal.html" class="waves-effect waves-light button">The Command Signal</a>
+      </div>
+    </div>
+
+  </body>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    console.log("Hello World!");
+    const panels = document.querySelectorAll('.panel');
+    const anchors = document.querySelectorAll('.button');
+
+    function addButton(){
+      this.classList.add('btn');
+    }
+
+    function removeButton(){
+      this.classList.remove('btn');
+    }
+
+    function toggleOpen(){
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e){
+      console.log(e.propertyName);
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    console.log(panels, anchors);
+    anchors.forEach(button => button.addEventListener('mouseover', addButton));
+    anchors.forEach(button => button.addEventListener('mouseout', removeButton));
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+  </script>
+</html>
